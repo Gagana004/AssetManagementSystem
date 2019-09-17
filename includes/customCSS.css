@@ -1,0 +1,11 @@
+body{
+	background-image:url("backgroundimg.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 300px;
+	width: 100%
+	background-repeat:repeat-y;
+	background-color: #464646;
+}
