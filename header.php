@@ -30,6 +30,15 @@
 						<a href="index.php" class="navbar-brand">Home</a>
 					</div>
 					<ul class="nav navbar-nav">
+					<?php
+					if($_SESSION['type'] == 'master') 
+					{
+					?>
+						<li><a href="user.php">User</a></li> <!-- only master-user can manage users -->
+						
+					<?php
+					}
+					?>	
 						<li><a href="vendor.php">Vendor</a></li>
 						<li><a href="category.php">Category</a></li>
 						<li><a href="item.php">Items </a></li>
