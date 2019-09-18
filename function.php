@@ -1,6 +1,25 @@
 <?php 
 //function.php
 
+// fill dropdowns
+// fill branch list dropdown
+function fill_branch_list($connect)
+{
+	$query = "
+			SELECT * FROM branch 
+			ORDER BY br_id ASC
+			";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["br_id"].'">'.$row["br_name"].'</option>';
+	}
+	return $output;
+}
+
 // counts display in index page
 // count all users in the system
 function count_total_user($connect)
