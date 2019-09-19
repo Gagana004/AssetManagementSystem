@@ -101,6 +101,24 @@ function fill_vendor_list($connect)
 	return $output;
 }
 
+// fill area list dropdown
+function fill_area_list($connect)
+{
+	$query= "	SELECT 	* 
+				FROM 	area 
+				ORDER BY ar_id";
+
+	$statement = $connect-> prepare($query);
+	$statement -> execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach ($result as $row) 
+	{
+		$output .= '<option value="' .$row["ar_id"].'">'.$row["ar_code"].'</option>';
+	}
+	return $output;
+}
+
 // counts display in index page
 // count all users in the system
 function count_total_user($connect)
