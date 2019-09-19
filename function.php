@@ -41,6 +41,66 @@ function fill_branch_list($connect)
 	return $output;
 }
 
+// fill Item list dropdown for selected category
+function fill_item_list($connect, $cat_id)
+{
+	$query = "
+				SELECT 	* 
+				FROM 	item 
+				WHERE 	it_status = 'active' AND 
+						cat_id = '".$cat_id."'
+				ORDER BY it_name ASC";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '<option value="">Select Item</option>';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["it_id"].'">'.$row["it_name"].'</option>';
+	}
+	return $output;
+}
+
+// fill Item list dropdown
+function fill_item_list_two($connect)
+{
+	$query = "
+				SELECT 	* 
+				FROM 	item
+				WHERE 	it_status = 'active'
+				ORDER BY it_name ASC";
+
+	$statement = $connect-> prepare($query);
+	$statement -> execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach ($result as $row) 
+	{
+		$output .= '<option value="'.$row["it_id"].'">'.$row["it_name"].'</option>';
+	}
+	return $output;
+}
+
+// fill Vendor list dropdown
+function fill_vendor_list($connect)
+{
+	$query = "
+			SELECT 	* 
+			FROM 	vendor 
+			WHERE 	v_status = 'active' 
+			ORDER BY v_name ASC
+			";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["v_id"].'">'.$row["v_name"].'</option>';
+	}
+	return $output;
+}
+
 // counts display in index page
 // count all users in the system
 function count_total_user($connect)
