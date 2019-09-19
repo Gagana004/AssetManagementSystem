@@ -2,6 +2,27 @@
 //function.php
 
 // fill dropdowns
+// fill category list dropdown
+function fill_category_list($connect)
+{
+	$query = "
+				SELECT 	* 
+				FROM 	category 
+				WHERE 	cat_status = 'active' 
+				ORDER BY cat_name ASC
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["cat_id"].'">'.$row["cat_name"].'</option>';
+	}
+	return $output;
+}
+ 
+
 // fill branch list dropdown
 function fill_branch_list($connect)
 {
