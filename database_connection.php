@@ -1,6 +1,6 @@
 <?php
 //database_connection.php
-//db = asset_management_db
+//db = adbms
 //username = root
 //password = ''
 

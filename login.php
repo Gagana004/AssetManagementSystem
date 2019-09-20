@@ -16,7 +16,7 @@ if(isset($_POST["login"]))
 {
 	$query = "
 	SELECT * FROM user
-	WHERE u_name = :u_name
+		WHERE u_name = :u_name
 	";
 	$statement = $connect->prepare($query);
 	$statement->execute(
@@ -88,24 +88,25 @@ if(isset($_POST["login"]))
 											  display: box;
 											  box-pack: center;
 											  box-align: center;">
-				<div class="panel panel-default col-md-4" id='login'>
+				<div class="login-header panel panel-default col-md-4" id='login'>
 					<div class="panel-body" align="center"><h2>Asset Management System</h2></div>
-					<div class="panel-container">
+					<div class="login-container panel-container">
 						<form method="post">
 							<?php echo $message; ?> <!-- display error message -->
 							<div class="form-group">
 								<!-- <label>Username</label> -->
-								<input type="text" name="u_name" class="form-control" placeholder="Username" required />
+								<input type="text" name="u_name" class="login-input form-control" placeholder="Username" required />
 							</div>
+							<br>
 							<div class="form-group">
 								<!-- <label>Password</label> -->
-								<input type="password" name="password" class="form-control" placeholder="Password" required />
+								<input type="password" name="password" class="login-input form-control" placeholder="Password" required />
 							</div>
-							<div class="form-group">
+							<div class="remember-me form-group">
 								<label><input type="checkbox" /> Remember Me</label>
 							</div>
 							<div class="form-group">
-								<input type="submit" name="login" value="Login" class="btn btn-info btn-block" />
+								<input type="submit" name="login" value="Login" class="btn btn-info btn-block login-button " />
 							</div>
 						</form>
 					</div>

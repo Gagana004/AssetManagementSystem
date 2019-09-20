@@ -19,7 +19,7 @@ if(isset($_POST['u_name']))
 	}
 	else
 	{
-		//if user didn't set new password
+		//user didn't set new password
 		$query = "
 		UPDATE user SET 
 			fname = '".$_POST["fname"]."', 

@@ -1,3 +1,4 @@
-<!-- footer -->
-	 </body>
- </html>
+<!-- footer.php -->
+		</div>
+	</body>
+</html> 

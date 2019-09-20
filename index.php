@@ -99,8 +99,7 @@ include('header.php');
 	}
 	?>
 
-	<!-- user and master can see this -->
-		
+	<!-- user and master can see this -->		
 	<?php
 		if($_SESSION['type']!== 'master')
 		{

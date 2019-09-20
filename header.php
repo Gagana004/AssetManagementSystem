@@ -5,19 +5,15 @@
 <html>
 	<head>
 		<title>Asset Management System</title>
-		
-		<!-- CSS -->
+		<script src="js/jquery-1.10.2.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="css/fontawesome.css"> -->
 		<link rel="stylesheet" href="includes/customCSS.css"/>
-		<link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
-
-		<!-- JS -->
 		<script src="js/jquery.dataTables.min.js"></script>
 		<script src="js/dataTables.bootstrap.min.js"></script>		
-		<script src="js/jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" href="css/dataTables.bootstrap.min.css" />
 		<script src="js/bootstrap.min.js"></script>
-		
 	</head>
 	<body>
 		<br />
