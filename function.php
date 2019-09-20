@@ -1,4 +1,4 @@
-<?php 
+<?php
 //function.php
 
 // fill dropdowns
@@ -21,7 +21,26 @@ function fill_category_list($connect)
 	}
 	return $output;
 }
- 
+
+// fill Vendor list dropdown
+function fill_vendor_list($connect)
+{
+	$query = "
+			SELECT 	* 
+			FROM 	vendor 
+			WHERE 	v_status = 'active' 
+			ORDER BY v_name ASC
+			";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["v_id"].'">'.$row["v_name"].'</option>';
+	}
+	return $output;
+}
 
 // fill branch list dropdown
 function fill_branch_list($connect)
@@ -37,6 +56,25 @@ function fill_branch_list($connect)
 	foreach($result as $row)
 	{
 		$output .= '<option value="'.$row["br_id"].'">'.$row["br_name"].'</option>';
+	}
+	return $output;
+}
+
+
+// fill area list dropdown
+function fill_area_list($connect)
+{
+	$query= "	SELECT 	* 
+				FROM 	area 
+				ORDER BY ar_id";
+
+	$statement = $connect-> prepare($query);
+	$statement -> execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach ($result as $row) 
+	{
+		$output .= '<option value="' .$row["ar_id"].'">'.$row["ar_code"].'</option>';
 	}
 	return $output;
 }
@@ -81,32 +119,51 @@ function fill_item_list_two($connect)
 	return $output;
 }
 
-// fill Vendor list dropdown
-function fill_vendor_list($connect)
+// fill AssetCode list dropdown for selected Item
+function fill_ast_code_list($connect, $it_id)
 {
-	$query = "
-			SELECT 	* 
-			FROM 	vendor 
-			WHERE 	v_status = 'active' 
-			ORDER BY v_name ASC
+	$query = "	SELECT 	*
+				FROM 	asset
+				WHERE 	ast_status = 'active'
+				AND  	it_id = '".$it_id."'
+				ORDER BY ast_code ASC
 			";
 	$statement = $connect->prepare($query);
 	$statement->execute();
 	$result = $statement->fetchAll();
-	$output = '';
+	$output = '<option value="">Asset Code</option>';
 	foreach($result as $row)
 	{
-		$output .= '<option value="'.$row["v_id"].'">'.$row["v_name"].'</option>';
+		$output .= '<option value="'.$row["ast_id"].'">'.$row["ast_code"].'</option>';
 	}
 	return $output;
 }
 
-// fill area list dropdown
-function fill_area_list($connect)
+// fill Area list dropdown for selected AssetCode
+function fill_frm_area($connect, $ast_code)
 {
-	$query= "	SELECT 	* 
-				FROM 	area 
-				ORDER BY ar_id";
+	$query = "SELECT p.*, a.area_code 
+			FROM product p, area a 
+			WHERE p.area_id = a.area_id AND
+			p.ast_code = '".$ast_code."'
+			";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '<option value="">From Area</option>';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["area_id"].'">'.$row["area_code"].'</option>';
+	}
+	return $output;
+}
+
+// fill AssetCode list dropdown
+function fill_ast_code_list_two($connect)
+{
+	$query = "	SELECT * FROM product
+				WHERE product_status = 'active'
+				ORDER BY product_id desc";
 
 	$statement = $connect-> prepare($query);
 	$statement -> execute();
@@ -114,9 +171,44 @@ function fill_area_list($connect)
 	$output = '';
 	foreach ($result as $row) 
 	{
-		$output .= '<option value="' .$row["ar_id"].'">'.$row["ar_code"].'</option>';
+		$output .= '<option value="'.$row["brand_id"].'">'.$row["brand_name"].'</option>';
 	}
 	return $output;
+}
+
+
+// fill Item list dropdown
+function fill_product_list($connect)
+{
+	$query = "
+	SELECT * FROM product 
+	WHERE product_status = 'active' 
+	ORDER BY product_name ASC
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$output = '';
+	foreach($result as $row)
+	{
+		$output .= '<option value="'.$row["product_id"].'">'.$row["product_name"].'</option>';
+	}
+	return $output;
+}
+
+// return User Name for Selected userId
+function get_user_name($connect, $user_id)
+{
+	$query = "
+	SELECT user_name FROM user_details WHERE user_id = '".$user_id."'
+	";
+	$statement = $connect->prepare($query);
+	$statement->execute();
+	$result = $statement->fetchAll();
+	foreach($result as $row)
+	{
+		return $row['user_name'];
+	}
 }
 
 // counts display in index page
@@ -239,4 +331,5 @@ function count_total_disposal($connect)
 	$statement->execute();
 	return $statement->rowCount();
 }
+
 ?>
