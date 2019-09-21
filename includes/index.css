@@ -1,0 +1,166 @@
+body{
+	background-image:url("backgroundimg.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: auto;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-color: #464646;
+}
+/* Login Page */
+.login-panel{
+    width: 100%;
+    /* Firefox */
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    /* Safari and Chrome */
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    /* W3C */
+    display: box;
+    box-pack: center;
+    box-align: center;
+}
+.panel-container{
+    background-color:#F0F8FF;
+    padding: 0px 20px 20px;
+}
+.login-header{
+    padding: 10px;
+    text-align: center;
+}
+.login-header h2{
+    font-weight: 600;
+    color: #000000;
+}
+.login-body{
+    background-color: #565C57;
+    padding: 20px;
+}
+.remember-me label{
+    margin-left: 20px;
+    color:#ffffff; 
+    font-weight:500;
+}
+.login-panel .btn-login{
+    background-color:#064452;  
+    color: #ffffff; 
+    width: 100%;
+    margin: 5% 0%;
+}
+/* Header */
+.container{
+    background-color:rgba(121, 121, 121, 0.5); 
+    width: 100%; 
+    height: auto; 
+}
+.container h1{
+    color: #064452; 
+    font-weight:600;
+    text-align: center;
+    padding: 10px;
+}
+.login-panel{
+    margin-top:10%;
+}
+.panel-body h2{
+    color: black; 
+    font-weight:600;
+}
+.btn{
+    font-weight: 600; 
+    font-size: 16px;
+}
+.btn :hover{
+    background-color:#064452;  
+    color: #ffffff; 
+    width: 100%;
+}
+/* Nav bar */
+.container-fluid{
+    background-color: #064452;
+}
+.col-md-3 .panel-heading {
+    color: #000000;
+    background-color: #838A89;
+    border-color: #838A89;
+    text-align: center;
+}
+.col-md-3 .panel-body{
+    background-color: #F0F8FF;
+    text-align: center;
+}
+.col-lg-12 .panel-heading{
+    background-color: #E5E4E2;
+}
+.col-lg-12 .panel-title{
+    font-size: 18.72px;
+    font-weight: 600;
+    padding-top: 15px; 
+    color: black;
+}
+.btn-success{
+    width: 50%;
+    padding: 5px 0px;
+}
+.modal-title{
+    font-size: 22px;
+    color: #000000;
+    font-weight: 600;
+}
+.modal-dialog{
+    background-color: #F0F8FF;
+    padding: 20px;
+}
+.modal-content{
+    background-color: #838A89;
+    border-radius: 0px;
+    color: #ffffff;
+}
+.modal-footer .btn-secondary{
+    float: left;
+    background-color: #C5C6C7;
+    color: #000000;
+}
+.btn-submit{
+    background-color: #064452;
+    color: #ffffff;
+}
+.panel-body table{
+    padding-top: 20px;
+}
+.panel-body table tr th {
+    background-color: #f2f2f2; 
+}
+.panel-body tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+.update{
+    background-color: #ffffff00;
+}
+.delete{
+    background-color: #ffffff00;
+}
+.view{
+    background-color: #ffffff00;
+}
+.label{
+    font-size: 14px;
+}
+.fa{
+    font-size: 20px;
+}
+.profile-panel {
+    background-color: #F0F8FF;
+    padding: 20px;
+}
+.profile-panel-body{
+    background-color: #838A89;
+    padding: 20px;
+    border-radius: 0px;
+    color: #ffffff;
+}

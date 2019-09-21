@@ -39,7 +39,7 @@ include('header.php');
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                         <div class="row" align="right">
-                             <button type="button" name="add" id="add_button" data-toggle="modal" data-target="#repairModal" class="btn btn-success btn-xs">Add</button>        
+                             <button type="button" name="add" id="add_button" data-toggle="modal" data-target="#repairModal" class="btn btn-success btn-xs">ADD</button>        
                         </div>
                     </div>
                     <div style="clear:both"></div>
@@ -47,7 +47,7 @@ include('header.php');
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-12 table-responsive">
-                            <table id="repair_data" class="table table-bordered table-striped">
+                            <table id="repair_data" class="table">
                                 <thead><tr>
                                     <th>ID</th>
                                     <th>Item Name</th>
@@ -57,8 +57,7 @@ include('header.php');
                                     <th>Enter Date</th>
                                     <th>Return Date</th>
                                     <th>Status</th>
-                                    <!-- <th>Edit</th> -->
-                                    <th>Delete</th>
+                                    <th></th>
                                 </tr></thead>
                             </table>
                         </div>
@@ -71,12 +70,12 @@ include('header.php');
     <!-- add repair details -->
     <div id="repairModal" class="modal fade">
         <div class="modal-dialog">
-            <form method="post" id="repair_form">
+            <form method="post" id="repair_form">                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Add Repair</h4>
+                </div>
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><i class="fa fa-plus"></i> Add Repair</h4>
-                    </div>
                     <div class="modal-body">
                             <div class="form-group">
                                 <label>Select Item</label>
@@ -106,8 +105,8 @@ include('header.php');
                     <div class="modal-footer">
                         <input type="hidden" name="dis_id" id="dis_id"/>
                         <input type="hidden" name="btn_action" id="btn_action"/>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <input type="submit" name="action" id="action" class="btn btn-info" value="Add" />  
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						<input type="submit" name="action" id="action" class="btn btn-submit"/>
                     </div>
                 </div>
             </form>
@@ -120,8 +119,8 @@ $(document).ready(function(){
     $('#add_button').click(function(){
         $('#repair_form')[0].reset();
         $('.modal-title').html("<i class='fa fa-plus'></i> Add repair"); 
-        $('#action').val('Add');
-        $('#btn_action').val('Add');
+        $('#action').val('ADD');
+        $('#btn_action').val('ADD');
     });
 
 

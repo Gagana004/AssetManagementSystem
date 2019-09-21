@@ -7,7 +7,7 @@ include('database_connection.php');
 
 if(isset($_POST['btn_action']))
 {
-	if($_POST['btn_action'] == 'Add') 
+	if($_POST['btn_action'] == 'ADD') 
 	{
 		//insert new user details in to user table
 		$query = "
@@ -65,7 +65,7 @@ if(isset($_POST['btn_action']))
 		echo json_encode($output); 
 	}
 
-	if($_POST['btn_action'] == 'Edit')
+	if($_POST['btn_action'] == 'EDIT')
 	{
 		//update user-table if password has changed
 		if($_POST['password'] != '')
