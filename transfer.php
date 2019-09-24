@@ -15,8 +15,8 @@ include('header.php');
 
     <link rel="stylesheet" href="css/datepicker.css">
     <script src="js/bootstrap-datepicker1.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
     <script>
     $(document).ready(function(){
@@ -39,7 +39,7 @@ include('header.php');
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                         <div class="row" align="right">
-                             <button type="button" name="add" id="add_button" data-toggle="modal" data-target="#transferModal" class="btn btn-success btn-xs">Add</button>        
+                             <button type="button" name="add" id="add_button" data-toggle="modal" data-target="#transferModal" class="btn btn-success btn-xs">ADD</button>        
                         </div>
                     </div>
                     <div style="clear:both"></div>
@@ -47,7 +47,7 @@ include('header.php');
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-12 table-responsive">
-                            <table id="transfer_data" class="table table-bordered table-striped">
+                            <table id="transfer_data" class="table">
                                 <thead><tr>
                                     <th>ID</th>
                                     <th>Item Name</th>
@@ -57,8 +57,7 @@ include('header.php');
                                     <th>Enter By</th>
                                     <th>Enter Date</th>
                                     <th>Status</th>
-                                    <!-- <th>Edit</th> -->
-                                    <th>Delete</th>
+                                    <th></th>
                                 </tr></thead>
                             </table>
                         </div>
@@ -69,12 +68,12 @@ include('header.php');
     </div>
     <div id="transferModal" class="modal fade">
         <div class="modal-dialog">
-            <form method="post" id="transfer_form">
+            <form method="post" id="transfer_form">               
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Add transfer</h4>
+                </div>
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><i class="fa fa-plus"></i> Add transfer</h4>
-                    </div>
                     <div class="modal-body">
                             <div class="form-group">
                                 <label>Select Item</label>
@@ -109,8 +108,8 @@ include('header.php');
                         <input type="hidden" name="dis_id" id="dis_id"/>
                         <!-- <input type="hidden" name="ast_id" id="ast_id"/> -->
                         <input type="hidden" name="btn_action" id="btn_action"/>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <input type="submit" name="action" id="action" class="btn btn-info" value="Add" /> 
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						<input type="submit" name="action" id="action" class="btn btn-submit"/>
                     </div>
                 </div>
             </form>
@@ -123,8 +122,8 @@ $(document).ready(function(){
     $('#add_button').click(function(){
         $('#transfer_form')[0].reset();
         $('.modal-title').html("<i class='fa fa-plus'></i> Add transfer");
-        $('#action').val('Add');
-        $('#btn_action').val('Add');
+        $('#action').val('ADD');
+        $('#btn_action').val('ADD');
     });
 
 
@@ -180,8 +179,8 @@ $(document).ready(function(){
                 $('#frm_area').val(data.frm_area);
                 $('.modal-title').html("<i class='fa fa-pencil-square-o'></i> Edit transfer");
                 $('#dis_id').val(dis_id);
-                $('#action').val('Edit');
-                $('#btn_action').val("Edit");
+                $('#action').val('EDIT');
+                $('#btn_action').val("EDIT");
             }
         })
     });

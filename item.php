@@ -19,16 +19,16 @@ include('header.php');
 			<div class="panel panel-default">
                 <div class="panel-heading">
                 	<div class="row">
-                		<div class="col-md-10">
+                		<div class="col-lg-10 col-md-10 col-sm-8 col-xs-6">
                 			<h3 class="panel-title">Item List</h3>
                 		</div>
-                		<div class="col-md-2" align="right">
-                			<button type="button" name="add" id="add_button" class="btn btn-success btn-xs">Add</button>
-                		</div>
+                		<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6" align="right">
+                			<button type="button" name="add" id="add_button" class="btn btn-success btn-xs">ADD</button>
+						</div>
                 	</div>
                 </div>
                 <div class="panel-body">
-                	<table id="item_data" class="table table-bordered table-striped">
+                	<table id="item_data" class="table">
                 		<thead>
 							<tr>
 								<th>ID</th>
@@ -36,8 +36,8 @@ include('header.php');
 								<th>Item Name</th>
 								<th>Qty</th>
 								<th>Status</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<th></th>
+								<th></th>
 							</tr>
 						</thead>
                 	</table>
@@ -48,12 +48,12 @@ include('header.php');
 
     <div id="itemModal" class="modal fade">
     	<div class="modal-dialog">
-    		<form method="post" id="item_form">
-    			<div class="modal-content">
-    				<div class="modal-header">
-    					<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title"><i class="fa fa-plus"></i> Add Item </h4>
-    				</div>
+    		<form method="post" id="item_form">			
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title"><i class="fa fa-plus"></i> Add Item </h4>
+				</div>
+				<div class="modal-content">
     				<div class="modal-body">
     					<div class="form-group">
     						<label>Select Category</label>
@@ -70,8 +70,8 @@ include('header.php');
     				<div class="modal-footer">
     					<input type="hidden" name="it_id" id="it_id" />
     					<input type="hidden" name="btn_action" id="btn_action" />
-    					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    					<input type="submit" name="action" id="action" class="btn btn-info" value="Add" />	
+    					<button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						<input type="submit" name="action" id="action" class="btn btn-submit"/>	
     				</div>
     			</div>
     		</form>
@@ -85,8 +85,8 @@ $(document).ready(function(){
 		$('#itemModal').modal('show');
 		$('#item_form')[0].reset();
 		$('.modal-title').html("<i class='fa fa-plus'></i> Add Item");
-		$('#action').val('Add');
-		$('#btn_action').val('Add');
+		$('#action').val('ADD');
+		$('#btn_action').val('ADD');
 	});
 
 	$(document).on('submit','#item_form', function(event){
@@ -123,8 +123,8 @@ $(document).ready(function(){
 				$('#it_name').val(data.it_name);
 				$('.modal-title').html("<i class='fa fa-pencil-square-o'></i> Edit Item");
 				$('#it_id').val(it_id);
-				$('#action').val('Edit');
-				$('#btn_action').val('Edit');
+				$('#action').val('EDIT');
+				$('#btn_action').val('EDIT');
 			}
 		})
 	});

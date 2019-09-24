@@ -6,7 +6,7 @@ include('database_connection.php');
 
 if(isset($_POST['btn_action']))
 {
-	if($_POST['btn_action'] == 'Add')
+	if($_POST['btn_action'] == 'ADD')
 	{
 		$query = "
 					INSERT INTO category (cat_name, cat_desc, cat_status) 
@@ -49,7 +49,7 @@ if(isset($_POST['btn_action']))
 		echo json_encode($output);
 	}
 
-	if($_POST['btn_action'] == 'Edit')
+	if($_POST['btn_action'] == 'EDIT')
 	{
 		$query = "
 					UPDATE 	category 

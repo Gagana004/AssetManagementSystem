@@ -24,13 +24,13 @@ include('header.php');
                             </div>
                         
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6" align='right'>
-                                <button type="button" name="add" id="add_button" class="btn btn-success btn-xs">Add</button>
+                                <button type="button" name="add" id="add_button" class="btn btn-success btn-xs">ADD</button>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <div class="row"><div class="col-sm-12 table-responsive">
-                            <table id="asset_data" class="table table-bordered table-striped">
+                            <table id="asset_data" class="table">
                                 <thead><tr>
                                     <th>ID</th>
                                     <th>Category</th>
@@ -40,9 +40,9 @@ include('header.php');
                                     <th>Ast Code</th>
                                     <th>Enter By</th>
                                     <th>Status</th>
-                                    <th>View</th>
-                                    <th>Update</th>
-                                    <th>Delete</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr></thead>
                             </table>
                         </div></div>
@@ -53,12 +53,12 @@ include('header.php');
 
         <div id="assetModal" class="modal fade">
             <div class="modal-dialog">
-                <form method="post" id="asset_form">
+                <form method="post" id="asset_form">                  
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-plus"></i> Add Asset</h4>
+                    </div>
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title"><i class="fa fa-plus"></i> Add Asset</h4>
-                        </div>
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Select Category</label>
@@ -96,28 +96,27 @@ include('header.php');
                         <div class="modal-footer">
                             <input type="hidden" name="ast_id" id="ast_id" />
                             <input type="hidden" name="btn_action" id="btn_action" />
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <input type="submit" name="action" id="action" class="btn btn-info" value="Add" />     
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+						    <input type="submit" name="action" id="action" class="btn btn-submit"/>     
                         </div>
                     </div>
-                </form>-it
+                </form>
             </div>
         </div>
 
         <div id="assetdetailsModal" class="modal fade">
             <div class="modal-dialog">
-                <form method="post" id="asset_form">
+                <form method="post" id="asset_form">                   
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"><i class="fa fa-plus"></i> Asset Details</h4>
+                    </div>
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title"><i class="fa fa-plus"></i> Asset Details</h4>
-                        </div>
                         <div class="modal-body">
                             <Div id="asset_details"></Div>
                         </div>
-                        <div class="modal-footer">
-                            
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div class="modal-footer">                          
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </form>
@@ -147,8 +146,8 @@ $(document).ready(function(){
         $('#assetModal').modal('show');
         $('#asset_form')[0].reset();
         $('.modal-title').html("<i class='fa fa-plus'></i> Add Asset");
-        $('#action').val("Add");
-        $('#btn_action').val("Add");
+        $('#action').val("ADD");
+        $('#btn_action').val("ADD");
     });
 
     $('#cat_id').change(function(){
@@ -217,8 +216,8 @@ $(document).ready(function(){
                 $('#ast_desc').val(data.ast_desc);
                 $('.modal-title').html("<i class='fa fa-pencil-square-o'></i> Edit asset");
                 $('#ast_id').val(ast_id);
-                $('#action').val("Edit");
-                $('#btn_action').val("Edit");
+                $('#action').val("EDIT");
+                $('#btn_action').val("EDIT");
             }
         })
     });

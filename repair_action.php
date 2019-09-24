@@ -11,7 +11,7 @@ if(isset($_POST['btn_action']))
 	{
 		echo fill_ast_code_list($connect, $_POST['it_id']); //pass selected item_id to the function 
 	}
-	if($_POST['btn_action'] == 'Add')
+	if($_POST['btn_action'] == 'ADD')
 	{
 		//insert data in to Dipatch table
 		$query = "
@@ -122,7 +122,7 @@ if(isset($_POST['btn_action']))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'repair status change to ' . $status; // show message to user weather active or inactive
+			echo 'Repair status change to ' . $status; // show message to user weather active or inactive
 		}
 	}
 }

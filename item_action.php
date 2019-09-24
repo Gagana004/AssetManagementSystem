@@ -6,7 +6,7 @@ include('database_connection.php');
 
 if(isset($_POST['btn_action']))
 {
-	if($_POST['btn_action'] == 'Add')
+	if($_POST['btn_action'] == 'ADD')
 	{
 		$query = "
 					INSERT INTO 	item (cat_id, it_name, it_status) 
@@ -49,7 +49,7 @@ if(isset($_POST['btn_action']))
 		}
 		echo json_encode($output);
 	}
-	if($_POST['btn_action'] == 'Edit')
+	if($_POST['btn_action'] == 'EDIT')
 	{
 		$query = "
 					UPDATE 	item 

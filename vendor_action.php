@@ -6,7 +6,7 @@ include('database_connection.php');
 
 if(isset($_POST['btn_action']))
 {
-	if($_POST['btn_action'] == 'Add')
+	if($_POST['btn_action'] == 'ADD')
 	{
 		$query = "
 					INSERT INTO vendor (v_name, v_email, v_tel, v_status) 
@@ -18,13 +18,13 @@ if(isset($_POST['btn_action']))
 				':v_name'	=>	$_POST["v_name"],
 				':v_email'	=>	$_POST["v_email"],
 				':v_tel'	=>	$_POST["v_tel"],
-				':v_status'	=>	$_POST["v_status"]
+				':v_status'	=>	'active'
 			)
 		);
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'Category Added';
+			echo 'Vendor Added';
 		}
 	}
 	
@@ -49,7 +49,7 @@ if(isset($_POST['btn_action']))
 		echo json_encode($output);
 	}
 
-	if($_POST['btn_action'] == 'Edit')
+	if($_POST['btn_action'] == 'EDIT')
 	{
 		$query = "
 					UPDATE 	vendor 
