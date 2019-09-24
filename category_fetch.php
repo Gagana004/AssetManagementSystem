@@ -59,8 +59,8 @@ foreach($result as $row)
 	$sub_array[] = $row['cat_name'];
 	$sub_array[] = $row['cat_desc'];
 	$sub_array[] = $status;
-	$sub_array[] = '<button type="button" name="update" id="'.$row["cat_id"].'" class="btn btn-xs update"><i class="fa fa-edit"></i></button>';
-	$sub_array[] = '<button type="button" name="delete" id="'.$row["cat_id"].'" class="btn btn-xs delete" data-status="'.$row["cat_status"].'"><i class="fa fa-trash"></i></button>';
+	$sub_array[] = '<button type="button" name="update" id="'.$row["cat_id"].'" class="btn btn-warning btn-xs update"><i class="fa fa-edit"></i></button>';
+	$sub_array[] = '<button type="button" name="delete" id="'.$row["cat_id"].'" class="btn btn-danger btn-xs delete" data-status="'.$row["cat_status"].'"><i class="fa fa-trash"></i></button>';
 	$data[] = $sub_array;
 }
 

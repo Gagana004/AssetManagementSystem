@@ -66,9 +66,9 @@ foreach($result as $row)
 	$sub_array[] = $row['ast_code'];
 	$sub_array[] = $row['fname'];
 	$sub_array[] = $status;
-	$sub_array[] = '<button type="button" name="view" id="'.$row["ast_id"].'" class="btn btn-xs view"><i class="fa fa-eye"></i></button>';
-	$sub_array[] = '<button type="button" name="update" id="'.$row["ast_id"].'" class="btn btn-xs update"><i class="fa fa-edit"></i></button>';
-	$sub_array[] = '<button type="button" name="delete" id="'.$row["ast_id"].'" class="btn btn-xs delete" data-status="'.$row["ast_status"].'"><i class="fa fa-trash"></i></button>';
+	$sub_array[] = '<button type="button" name="view" id="'.$row["ast_id"].'" class="btn btn-info btn-xs view"><i class="fa fa-eye"></i></button>';
+	$sub_array[] = '<button type="button" name="update" id="'.$row["ast_id"].'" class="btn btn-warning btn-xs update"><i class="fa fa-edit"></i></button>';
+	$sub_array[] = '<button type="button" name="delete" id="'.$row["ast_id"].'" class="btn btn-danger btn-xs delete" data-status="'.$row["ast_status"].'"><i class="fa fa-trash"></i></button>';
 	$data[] = $sub_array;
 }
 

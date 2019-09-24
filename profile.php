@@ -27,11 +27,9 @@ $query = "
 include('header.php');
 
 ?>
-	<div class="profile-panel panel-default">
-		<div class="profile-panel-heading">
-			<h4 class="modal-title">Edit Profile</h4>
-		</div>
-		<div class="profile-panel-body">
+	<div class="panel panel-default">
+		<div class="panel-heading"><b>Edit Profile</b></div>
+		<div class="panel-body">
 			<form method="post" id="edit_profile_form">
 				<span id="message"></span>
 				<div class="form-group">
@@ -61,7 +59,7 @@ include('header.php');
 					<span id="error_password"></span> <!-- error password label -->
 				</div>
 				<div class="form-group">
-					<input type="submit" name="edit_prfile" id="edit_prfile" value="EDIT" class="btn btn-submit" />
+					<input type="submit" name="edit_prfile" id="edit_prfile" value="Edit" class="btn btn-info" />
 				</div>
 			</form>
 		</div>

@@ -11,7 +11,7 @@ if(isset($_POST['btn_action']))
 	{
 		echo fill_ast_code_list($connect, $_POST['it_id']);
 	}
-	if($_POST['btn_action'] == 'ADD')
+	if($_POST['btn_action'] == 'Add')
 	{
 		$query = "
 					INSERT INTO dispatch (dis_date, frm_area, dis_status, u_id, ast_id, it_id) 
@@ -76,7 +76,7 @@ if(isset($_POST['btn_action']))
 		echo json_encode($output);
 	}
 
-	if($_POST['btn_action'] == 'EDIT')
+	if($_POST['btn_action'] == 'Edit')
 	{
 		$query = "
 					UPDATE 	dispatch 
@@ -120,7 +120,7 @@ if(isset($_POST['btn_action']))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'Dispatch status change to ' . $status;
+			echo 'repair status change to ' . $status;
 		}
 	}
 }

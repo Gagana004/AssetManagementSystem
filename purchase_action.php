@@ -6,7 +6,7 @@ include('database_connection.php');
 
 if(isset($_POST['btn_action']))
 {
-	if($_POST['btn_action'] == 'ADD')
+	if($_POST['btn_action'] == 'Add')
 	{
 		$query = "
 		INSERT INTO purchase (invoice_no, p_date, p_qty, v_id, it_id, p_status) 
@@ -26,7 +26,7 @@ if(isset($_POST['btn_action']))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'Purchase Added';
+			echo 'Purchase Record Added';
 		}
 
 		#update qty of asset
@@ -62,7 +62,7 @@ if(isset($_POST['btn_action']))
 		echo json_encode($output);
 	}
 
-	if($_POST['btn_action'] == 'EDIT')
+	if($_POST['btn_action'] == 'Edit')
 	{
 		$query = "
 					UPDATE 	purchase 
@@ -83,7 +83,7 @@ if(isset($_POST['btn_action']))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'Purchase Edited';
+			echo 'Purchase Record Edited';
 		}
 	}
 	if($_POST['btn_action'] == 'delete')
@@ -108,7 +108,7 @@ if(isset($_POST['btn_action']))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'Purchase status change to ' . $status;
+			echo 'purchase status change to ' . $status;
 		}
 	}
 }

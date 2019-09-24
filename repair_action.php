@@ -11,7 +11,7 @@ if(isset($_POST['btn_action']))
 	{
 		echo fill_ast_code_list($connect, $_POST['it_id']); //pass selected item_id to the function 
 	}
-	if($_POST['btn_action'] == 'ADD')
+	if($_POST['btn_action'] == 'Add')
 	{
 		//insert data in to Dipatch table
 		$query = "
@@ -46,12 +46,59 @@ if(isset($_POST['btn_action']))
 					':return_date'	=> $_POST["return_date"]
 				)
 		);
-		$result = $statement->fetchAll();
+
 		if(isset($result))
 		{
 			echo 'Repair Added';
 		}
 	}
+	
+	// if($_POST['btn_action'] == 'fetch_single')
+	// {
+	// 	$query = "	SELECT 	d.* 
+	// 				FROM 	dispatch AS d, repair AS r 
+	// 				WHERE 	d.dis_id = :dis_id AND
+	// 						d.dis_id = r.r_dis_id
+	// 			";
+	// 	$statement = $connect->prepare($query);
+	// 	$statement->execute(
+	// 		array(
+	// 			':dis_id'	=>	$_POST["dis_id"]
+	// 		)
+	// 	);
+	// 	$result = $statement->fetchAll();
+	// 	foreach($result as $row)
+	// 	{
+	// 		$output['it_id'] 	= $row['it_id'];
+	// 		$output['ast_id'] 	= $row['ast_id'];
+	// 		$output['frm_area']	= $row['frm_area'];
+	// 	}
+	// 	echo json_encode($output);
+	// }
+
+	// if($_POST['btn_action'] == 'Edit')
+	// {
+	// 	$query = "
+	// 				UPDATE 	dispatch 
+	// 				SET		it_id = :it_id, ast_id = :ast_id, frm_area = :frm_area  
+	// 				WHERE 	dis_id = :dis_id
+	// 	";
+	// 	$statement = $connect->prepare($query);
+	// 	$statement->execute(
+	// 		array(
+	// 			':it_id'		=>	$_POST["it_id"],
+	// 			':ast_id'		=>	$_POST["ast_id"],
+	// 			':frm_area'		=>	$_POST["frm_area"],
+	// 			':dis_id'		=>	$_POST["dis_id"]
+	// 		)
+	// 	);
+	// 	$result = $statement->fetchAll();
+	// 	if(isset($result))
+	// 	{
+	// 		echo 'Repair Edited';
+	// 	}
+	// }
+	 
 	// set status of record active or inactive
 	if($_POST['btn_action'] == 'delete')
 	{
@@ -75,7 +122,7 @@ if(isset($_POST['btn_action']))
 		$result = $statement->fetchAll();
 		if(isset($result))
 		{
-			echo 'Repair status change to ' . $status; // show message to user weather active or inactive
+			echo 'repair status change to ' . $status; // show message to user weather active or inactive
 		}
 	}
 }

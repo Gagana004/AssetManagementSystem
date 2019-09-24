@@ -14,7 +14,7 @@ if(isset($_POST['btn_action']))
 		echo fill_item_list($connect, $_POST['cat_id']);
 	}
 
-	if($_POST['btn_action'] == 'ADD')
+	if($_POST['btn_action'] == 'Add')
 	{
 		$query = "
 					INSERT INTO 	asset (ast_code, ast_sn, ast_desc, ast_status, ar_id, it_id, cat_id, u_id) 
@@ -147,7 +147,7 @@ if(isset($_POST['btn_action']))
 		echo json_encode($output);
 	}
 
-	if($_POST['btn_action'] == 'EDIT')
+	if($_POST['btn_action'] == 'Edit')
 	{
 		$query = "
 					UPDATE 	asset 

@@ -24,7 +24,7 @@ include('header.php');
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                         <div class="row" align="right">
-                             <button type="button" name="add" id="add_button" data-toggle="modal" data-target="#vendorModal" class="btn btn-success btn-xs">ADD</button>   		
+                             <button type="button" name="add" id="add_button" data-toggle="modal" data-target="#vendorModal" class="btn btn-success btn-xs">Add</button>   		
                         </div>
                     </div>
                     <div style="clear:both"></div>
@@ -32,15 +32,15 @@ include('header.php');
                 <div class="panel-body">
                     <div class="row">
                     	<div class="col-sm-12 table-responsive">
-                    		<table id="vendor_data" class="table">
+                    		<table id="vendor_data" class="table table-bordered table-striped">
                     			<thead><tr>
 									<th>ID</th>
 									<th>Vendor Name</th>
 									<th>Email</th>
 									<th>Tel.</th>
 									<th>Status</th>
-									<th></th>
-									<th></th>
+									<th>Edit</th>
+									<th>Delete</th>
 								</tr></thead>
                     		</table>
                     	</div>
@@ -51,12 +51,12 @@ include('header.php');
     </div>
     <div id="vendorModal" class="modal fade">
     	<div class="modal-dialog">
-    		<form method="post" id="vendor_form"> 			
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title"><i class="fa fa-plus"></i> Add Vendor</h4>
-				</div>
-				<div class="modal-content">
+    		<form method="post" id="vendor_form">
+    			<div class="modal-content">
+    				<div class="modal-header">
+    					<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title"><i class="fa fa-plus"></i> Add Vendor</h4>
+    				</div>
     				<div class="modal-body">
     					<label>Vendor Name</label>
 						<input type="text" name="v_name" id="v_name" class="form-control" required />
@@ -68,8 +68,8 @@ include('header.php');
     				<div class="modal-footer">
     					<input type="hidden" name="v_id" id="v_id"/>
     					<input type="hidden" name="btn_action" id="btn_action"/>
-    					<button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-						<input type="submit" name="action" id="action" class="btn btn-submit"/>
+    					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    					<input type="submit" name="action" id="action" class="btn btn-info" value="Add" />
     				</div>
     			</div>
     		</form>
@@ -82,8 +82,8 @@ $(document).ready(function(){
 	$('#add_button').click(function(){
 		$('#vendor_form')[0].reset();
 		$('.modal-title').html("<i class='fa fa-plus'></i> Add Vendor");
-		$('#action').val('ADD');
-		$('#btn_action').val('ADD');
+		$('#action').val('Add');
+		$('#btn_action').val('Add');
 	});
 
 	$(document).on('submit','#vendor_form', function(event){
@@ -121,8 +121,8 @@ $(document).ready(function(){
 				$('#v_tel').val(data.v_tel);
 				$('.modal-title').html("<i class='fa fa-pencil-square-o'></i> Edit vendor");
 				$('#v_id').val(v_id);
-				$('#action').val('EDIT');
-				$('#btn_action').val("EDIT");
+				$('#action').val('Edit');
+				$('#btn_action').val("Edit");
 			}
 		})
 	});

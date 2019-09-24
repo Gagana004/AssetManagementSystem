@@ -68,18 +68,29 @@ if(isset($_POST["login"]))
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="includes/customCSS.css"/>
-		<link rel="stylesheet" href="includes/index.css"/>
 		<script src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
+		<br />
 		<div class="container">
-			<!-- <h2 align="center">Asset Management System </h2> -->	
-			<div class="login-panel">
-				<div class="panel-container panel panel-default col-md-4" id='login'>
-					<div class="login-header">
-						<h2>Asset Management System</h2>
-					</div>
-					<div class="login-body">
+			<!-- <h2 align="center">Asset Management System </h2> -->
+			<br />
+			<div class="login-panel" style=" width: 100%;
+								  				/* Firefox */
+											  display: -moz-box;
+											  -moz-box-pack: center;
+											  -moz-box-align: center;
+											  /* Safari and Chrome */
+											  display: -webkit-box;
+											  -webkit-box-pack: center;
+											  -webkit-box-align: center;
+											  /* W3C */
+											  display: box;
+											  box-pack: center;
+											  box-align: center;">
+				<div class="login-header panel panel-default col-md-4" id='login'>
+					<div class="panel-body" align="center"><h2>Asset Management System</h2></div>
+					<div class="login-container panel-container">
 						<form method="post">
 							<?php echo $message; ?> <!-- display error message -->
 							<div class="form-group">
@@ -92,12 +103,10 @@ if(isset($_POST["login"]))
 								<input type="password" name="password" class="login-input form-control" placeholder="Password" required />
 							</div>
 							<div class="remember-me form-group">
-								<input type="checkbox"><label>Remember Me</label>
+								<label><input type="checkbox" /> Remember Me</label>
 							</div>
 							<div class="form-group">
-								<button type="submit" name="login" class="btn btn-login">
-									LOGIN
-								</button>								
+								<input type="submit" name="login" value="Login" class="btn btn-info btn-block login-button " />
 							</div>
 						</form>
 					</div>
